@@ -2,11 +2,8 @@
 
 # Update and install system dependencies
 sudo apt-get update
-sudo apt-get install -y python3-pip git unclutter
-
-# Clone the repository
-git clone https://github.com/lexhoefsloot/pitouchscreen.git
-cd pitouchscreen
+sudo apt-get upgrade -y
+sudo apt-get install -y python3-pip git unclutter xscreensaver
 
 # Install Python packages
 sudo pip3 install evdev RPi.GPIO
@@ -20,7 +17,6 @@ echo -e "[Unit]\nDescription=Touchscreen Backlight Control\nAfter=multi-user.tar
 sudo systemctl daemon-reload
 sudo systemctl enable backlight.service
 sudo systemctl start backlight.service
-sudo apt upgrade -y && sudo apt install -y xscreensaver
 # Configure unclutter
 sudo sh -c 'echo -e "DISPLAY=:0.0 ;xset s off; xset -dpms; xset s noblank; export DISPLAY\nunclutter -idle 0.01 -root" >> /etc/X11/xinit/xinitrc'
 
