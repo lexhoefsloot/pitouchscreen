@@ -22,7 +22,7 @@ sudo systemctl enable backlight.service
 sudo systemctl start backlight.service
 
 # Configure unclutter
-sudo sh -c 'echo -e "DISPLAY=:0.0 ; export DISPLAY\nunclutter -idle 0.01 -root" >> /etc/X11/xinit/xinitrc'
+sudo sh -c 'echo -e "DISPLAY=:0.0 ;xset s off; xset -dpms; xset s noblank; export DISPLAY\nunclutter -idle 0.01 -root" >> /etc/X11/xinit/xinitrc'
 
 # Set the URL for FullPageOS
 sudo sh -c 'echo "http://homeassistant.local:8123/dashboard-livingroom/0" > /boot/fullpageos.txt'
