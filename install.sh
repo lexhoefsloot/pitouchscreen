@@ -20,7 +20,7 @@ echo -e "[Unit]\nDescription=Touchscreen Backlight Control\nAfter=multi-user.tar
 sudo systemctl daemon-reload
 sudo systemctl enable backlight.service
 sudo systemctl start backlight.service
-sudo apt upgrade && sudo apt install -y xscreensaver
+sudo apt upgrade -y && sudo apt install -y xscreensaver
 # Configure unclutter
 sudo sh -c 'echo -e "DISPLAY=:0.0 ;xset s off; xset -dpms; xset s noblank; export DISPLAY\nunclutter -idle 0.01 -root" >> /etc/X11/xinit/xinitrc'
 
@@ -31,3 +31,5 @@ sudo sh -c 'echo "http://homeassistant.local:8123/dashboard-livingroom/0" > /boo
 x11vnc -storepasswd
 
 echo "Installation complete! The backlight service is now running and will start on boot."
+
+#Use to run this script: git clone https://github.com/lexhoefsloot/pitouchscreen.git && cd pitouchscreen && bash install.sh
